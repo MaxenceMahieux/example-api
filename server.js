@@ -21,7 +21,25 @@ router.get('/health', (ctx) => {
 })
 
 router.get('/examples', (ctx) => {
-  ctx.body = examples
+  const { done } = ctx.query
+
+  if (done === undefined) {
+    ctx.body = examples
+    return
+  }
+
+  if (done !== 'true' && done !== 'false') {
+    ctx.status = 400
+    ctx.body = { error: "Le paramètre done doit valoir 'true' ou 'false'" }
+    return
+  }
+
+  const isDone = done === 'true'
+  ctx.body = examples.filter((e) => e.done === isDone)
+})
+
+router.get('/examples/count', (ctx) => {
+  ctx.body = { count: examples.length }
 })
 
 router.get('/examples/:id', (ctx) => {
