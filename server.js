@@ -24,6 +24,19 @@ router.get('/examples', (ctx) => {
   ctx.body = examples
 })
 
+router.get('/examples/:id', (ctx) => {
+  const id = Number(ctx.params.id)
+  const example = examples.find((e) => e.id === id)
+
+  if (!example) {
+    ctx.status = 404
+    ctx.body = { error: 'Exemple introuvable' }
+    return
+  }
+
+  ctx.body = example
+})
+
 app.use(router.routes())
 app.use(router.allowedMethods())
 
