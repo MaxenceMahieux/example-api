@@ -1,0 +1,20 @@
+{
+  "name": "example-api",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/MaxenceMahieux/example-api#readme",
+  "bugs": {
+    "url": "https://github.com/MaxenceMahieux/example-api/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaxenceMahieux/example-api.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
